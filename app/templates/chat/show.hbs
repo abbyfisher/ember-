@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="list-group">
+    {{#each messages as |message|}}
+      <div class="list-group-item">
+        <span class="list-group-item-heading">{{message.user.name}}</span>
+        -
+        <span>{{moment-from-now message.createdAt}}</span>
+        :
+        <span class="list-group-item-text">{{message.content}}</span>
+      </div>
+    {{/each}}
+  </div>
+  {{#bs-form action="send"}}
+    {{#bs-form-group}}
+      {{bs-input value=message placeholder="Message..." autocomplete="off"}}
+    {{/bs-form-group}}
+ {{/bs-form}}
+</div>
